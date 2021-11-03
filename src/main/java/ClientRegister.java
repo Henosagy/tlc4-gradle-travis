@@ -20,6 +20,10 @@ public class ClientRegister {
         return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Gold)).collect(Collectors.toList());
     }
 
+    public List<String> getGoldClientsContactname(){
+        return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Gold)).map(c->c.getContactPerson()).collect(Collectors.toList());
+    }
+
     public String clientName(String id){
         return allClients().stream().filter(c -> c.getId() == id).map(c -> c.getName()).findAny().orElse("");
     }

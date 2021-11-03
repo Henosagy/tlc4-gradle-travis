@@ -9,7 +9,7 @@ class ClientRegisterTest {
 
     List<CorporateClient> corporateClientList = List.of(
             new CorporateClient("Henry", "1000", ServiceLevel.Gold,"Bismark"),
-            new CorporateClient("Yaw", "1001", ServiceLevel.Gold,"Bismark"),
+            new CorporateClient("Yaw", "1001", ServiceLevel.Gold,"Kwame"),
             new CorporateClient("Agnes", "1002", ServiceLevel.Platinum,"Essel"),
             new CorporateClient("Okai", "1003", ServiceLevel.Premium,"Kenneth")
     );
@@ -33,6 +33,12 @@ class ClientRegisterTest {
         assertTrue(clientRegister.goldClients().stream().allMatch(s -> s.getServiceLevel() == ServiceLevel.Gold));
     }
 
+
+    @Test
+    void getGoldClientContactName(){
+        var list = List.of("Bismark", "Kwame", "Akonobea");
+        assertEquals(list, clientRegister.getGoldClientsContactname());
+    }
     @Test
     void clientName() {
         assertEquals("Akonobea", clientRegister.clientName("2001"));
