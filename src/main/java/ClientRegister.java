@@ -16,11 +16,7 @@ public class ClientRegister {
         return Stream.concat(corporateClientList.stream(),privateClientList.stream()).collect(Collectors.toList());
     }
 
-    public List<Client> goldClients(){
-        return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Gold)).collect(Collectors.toList());
-    }
-
-    public List<String> getGoldClientsContactname(){
+    public List<String> getGoldClientsContactName(){
         return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Gold)).map(c->c.getContactPerson()).collect(Collectors.toList());
     }
 
@@ -29,23 +25,15 @@ public class ClientRegister {
     }
 
     public List<Integer> countServiceLevel(){
-        var goldCount =  goldClients().size();
-        var platinumCount = platinumClients().size();
-        var premiumCount = premiumClients().size();
+        var goldCount =  allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Gold)).collect(Collectors.toList()).size();
+        var platinumCount = allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Platinum)).collect(Collectors.toList()).size();
+        var premiumCount = allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Premium)).collect(Collectors.toList()).size();
 
         List<Integer> count = List.of(goldCount, platinumCount, premiumCount);
         return count;
 //        System.out.println("There are " + goldCount + " Gold clients.");
 //        System.out.println("There are " + platinumCount + " Platinum clients.");
 //        System.out.println("There are " + premiumCount + " Premium clients.");
-    }
-
-    public List<Client> platinumClients(){
-        return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Platinum)).collect(Collectors.toList());
-    }
-
-    public List<Client> premiumClients(){
-        return allClients().stream().filter(c -> c.getServiceLevel().equals(ServiceLevel.Premium)).collect(Collectors.toList());
     }
 
 

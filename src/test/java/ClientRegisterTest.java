@@ -33,15 +33,9 @@ class ClientRegisterTest {
     }
 
     @Test
-    void goldClients() {
-        assertTrue(clientRegister.goldClients().stream().allMatch(s -> s.getServiceLevel() == ServiceLevel.Gold));
-    }
-
-
-    @Test
     void getGoldClientContactName(){
         var list = List.of("Bismark", "Kwame", "Akonobea");
-        assertEquals(list, clientRegister.getGoldClientsContactname());
+        assertEquals(list, clientRegister.getGoldClientsContactName());
     }
     @Test
     void clientName() {
