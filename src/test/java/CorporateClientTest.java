@@ -6,7 +6,8 @@ class CorporateClientTest {
 
     @Test
     void getContactPerson() {
-        Client client1 = new CorporateClient("Henry", "1000", ServiceLevel.Gold,"Bismark");
+        AccountManager accountManager = new AccountManager("Bismark", "A100");
+        Client client1 = new CorporateClient("Henry", "1000", ServiceLevel.Gold, accountManager);
         assertTrue(client1.getContactPerson()=="Bismark");
     }
 }

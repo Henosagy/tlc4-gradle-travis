@@ -6,12 +6,16 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientRegisterTest {
+    AccountManager accountManager1 = new AccountManager("Bismark", "ACM100");
+    AccountManager accountManager2 = new AccountManager("Kwame", "ACM101");
+    AccountManager accountManager3 = new AccountManager("Essel", "ACM102");
+    AccountManager accountManager4 = new AccountManager("Kenneth", "ACM103");
 
     List<CorporateClient> corporateClientList = List.of(
-            new CorporateClient("Henry", "1000", ServiceLevel.Gold,"Bismark"),
-            new CorporateClient("Yaw", "1001", ServiceLevel.Gold,"Kwame"),
-            new CorporateClient("Agnes", "1002", ServiceLevel.Platinum,"Essel"),
-            new CorporateClient("Okai", "1003", ServiceLevel.Premium,"Kenneth")
+            new CorporateClient("Henry", "1000", ServiceLevel.Gold, accountManager1),
+            new CorporateClient("Yaw", "1001", ServiceLevel.Gold, accountManager2),
+            new CorporateClient("Agnes", "1002", ServiceLevel.Platinum, accountManager3),
+            new CorporateClient("Okai", "1003", ServiceLevel.Premium, accountManager4)
     );
 
     List<PrivateClient> privateClientList = List.of(
@@ -51,8 +55,4 @@ class ClientRegisterTest {
         assertEquals(expected , actual);
     }
 
-    @Test
-    void goldCountServiceLevel() {
-
-    }
 }
